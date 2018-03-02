@@ -38,9 +38,9 @@ for n in range(0,quantidade_interfaces): erro_ideal.append(0)
 #Inicia loop permanente 
 while(1):
     perda = int(commands.getoutput("sudo nping -c 100 --tcp -p 53 " + host + "| grep 'Lost' | cut -d '.' -f 1 | awk -F '(' '{print $NF}'"))
+    print 'perda = ', perda
     
     timeout = os.system("snmpwalk -v2c -c " + comunidade_snmp + " " + ip_roteador + " 1.3.6.1.2.1.2.2.1.14")
-    print 'perda = ', perda
     erro = erro_ideal[:]
     erro_1 = erro_ideal[:]
     erro_2 = erro_ideal[:]
